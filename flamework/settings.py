@@ -25,8 +25,10 @@ SECRET_KEY = 'st9kwt9!h8y*#7qr4!r9*55_-quumghvuo(p8opgpm(jx#rnqc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 DB_conn = ""
+ALLOWED_HOSTS = []
 if os.getenv('ENVIRONMENT') == 'production':
     DB_conn = 'ali'
+    ALLOWED_HOSTS = os.getenv('DB_HOST')
 
 # Application definition
 
