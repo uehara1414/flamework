@@ -1,0 +1,15 @@
+{% extends 'flamework_app/base.html' %}
+{% block content %}
+  <div class="container" style="margin-top: 60px;width:600px;">
+
+  <div class="jumbotron text-center">
+    <h2>線形代数の教科書</h2>
+    <h3>買取価格: 300円</h3>
+    <form class="form" action="{% url 'flamework_app:sale_request' %}" method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">持ってるから売りつける</button>
+    </form>
+  </div>
+
+  </div>
+{% endblock %}

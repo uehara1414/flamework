@@ -1,0 +1,41 @@
+{% extends 'flamework_app/mypage_base.html' %}
+{% block main %}
+  <div class="container" style="margin-top: 60px">
+    <h2>未承認購入申請</h2>
+    <div class="col-sm-4">
+      <a href="{% url 'flamework_app:edit_onsale' %}">
+        <h3>Wanted!</h3>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        アルゴの教科書
+        1000円
+      </a>
+    </div>
+    <h3>購入申請</h3>
+    <ul>
+      <li class="list-inline"><a href="#">2017/05/04 「来週の月曜の昼休みに１階円卓にてどうでしょうか」</a>
+        <form style="display: inline">
+          <button class="btn btn-success" type="submit">承認</button>
+        </form>
+        <form style="display: inline">
+          <button class="btn btn-danger" type="submit">リジェクト</button>
+        </form>
+      </li>
+      <li class="list-inline"><a href="#">2017/05/04 「来週の火曜の昼休みに１階円卓にてどうでしょうか」</a>
+        <form style="display: inline">
+          <button class="btn btn-success" type="submit">承認</button>
+        </form>
+        <form style="display: inline">
+          <button class="btn btn-danger" type="submit">リジェクト</button>
+        </form>
+      </li>
+      <li class="list-inline"><a href="#">2017/05/04 「来週の水曜の昼休みに１階円卓にてどうでしょうか」</a>
+        <form style="display: inline">
+          <button class="btn btn-success" type="submit">承認</button>
+        </form>
+        <form style="display: inline">
+          <button class="btn btn-danger" type="submit">リジェクト</button>
+        </form>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

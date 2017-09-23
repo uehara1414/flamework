@@ -1,0 +1,31 @@
+{% extends 'flamework_app/base.html' %}
+{% block content %}
+
+    <div class="container-fluid" style="margin-top: 60px">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="{% url 'flamework_app:mypage' %}">マイページ<span class="sr-only">(current)</span></a></li>
+            <li><a href="#">お知らせ<span class="badge">2</span></a></li>
+            <li><a href="#">やることリスト<span class="badge">2</span></a></li>
+            <li><a href="#">購入申請中<span class="badge">2</span></a></li>
+            <li><a href="#">売却申請中<span class="badge">2</span></a></li>
+            <li><a href="{% url 'flamework_app:sell' %}">出品する</a></li>
+            <li><a href="{% url 'flamework_app:onsale_list' %}">出品中<span class="badge">1</span></a></li>
+            <li><a href="{% url 'flamework_app:submitted_buy_request_list' %}">未承認購入申請<span class="badge">4</span></a></li>
+            <li><a href="{% url 'flamework_app:wish_list' %}">欲しいものリスト<span class="badge">3</span></a></li>
+            <li><a href="{% url 'flamework_app:submitted_sale_request_list' %}">未承認売却申請<span class="badge">2</span></a></li>
+            <li><a href="#">ニュース一覧<span class="badge">2</span></a></li>
+            <li><a href="#">ガイド<span class="badge">2</span></a></li>
+            <li><a href="#">お問い合わせ<span class="badge">2</span></a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 main">
+          {% block main %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

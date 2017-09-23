@@ -1,0 +1,14 @@
+{% extends 'flamework_app/base.html' %}
+{% block content %}
+  <div class="container" style="margin-top: 60px;width:600px;">
+
+  <div class="jumbotron text-center">
+    <h2>認知心理学の教科書</h2>
+    <h3>買取価格: 500円</h3>
+    <form class="form" action="{% url 'flamework_app:buy_request' %}" method="get">
+      <button type="submit" class="btn btn-primary">買いたい</button>
+    </form>
+  </div>
+
+  </div>
+{% endblock %}

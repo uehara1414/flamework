@@ -1,0 +1,14 @@
+{% extends 'flamework_app/mypage_base.html' %}
+{% block main %}
+  <div class="container" style="margin-top: 60px">
+    <h2>売り出し中商品一覧</h2>
+    <div class="col-sm-4">
+      <a href="{% url 'flamework_app:wish' %}">
+        <h3>Wanted!</h3>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        アルゴの教科書
+        1000円
+      </a>
+    </div>
+  </div>
+{% endblock %}
