@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from flamework_app.models import DesignerIdea, EngineerIdea
 
 
 def index(request):
@@ -10,7 +11,33 @@ def mypage(request):
 
 
 def search(request):
-    return render(request, 'flamework_app/search.html')
+
+    target = request.GET.get('target', 'designer')
+
+    if target == 'designer':
+        ideas = DesignerIdea.objects.all()
+        context = {
+            'ideas': ideas
+        }
+        return render(request, 'flamework_app/search_designers.html', context)
+    else:
+        ideas = EngineerIdea.objects.all()
+        context = {
+            'ideas': ideas
+        }
+        return render(request, 'flamework_app/search_engineers.html', context)
+
+
+def engineer_idea_detail(request, pk):
+    idea = EngineerIdea.objects.get(id=pk)
+    context = {'idea': idea}
+    return render(request, 'flamework_app/engineer_idea_detail.html', context)
+
+
+def designer_idea_detail(request, pk):
+    idea = DesignerIdea.objects.get(id=pk)
+    context = {'idea': idea}
+    return render(request, 'flamework_app/designer_idea_detail.html', context)
 
 
 def signup(request):

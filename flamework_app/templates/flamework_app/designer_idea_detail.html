@@ -1,0 +1,13 @@
+{% extends 'flamework_app/base.html' %}
+{% block content %}
+  <div class="container jumbotron" style="margin-top: 60px;width: 600px;">
+
+  <div>
+    <h2>{{ idea.title }}</h2>
+    <label for="description">説明</label>
+    <p id="description">{{ idea.description }}</p>
+    <a href="{% url 'flamework_app:sell_completed' %}"><button class="btn btn-lg btn-primary btn-block">コンタクト申請する</button></a>
+  </div>
+
+  </div>
+{% endblock %}

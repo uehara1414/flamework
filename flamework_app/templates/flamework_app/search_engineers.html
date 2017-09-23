@@ -1,0 +1,22 @@
+{% extends 'flamework_app/base.html' %}
+
+{% block content %}
+  <div class="container" style="margin-top: 60px">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#">全て</a></li>
+      <li role="presentation"><a href="#">買う</a></li>
+      <li role="presentation"><a href="#">売る</a></li>
+    </ul>
+    <h2>商品一覧</h2>
+    {% for idea in ideas %}
+      <div class="col-sm-4">
+        <a href="{% url 'flamework_app:engineer_idea_detail' idea.id %}">
+          <h3>{{ idea.title }}</h3>
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"
+               height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+          {{ idea.description }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
