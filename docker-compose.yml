@@ -2,8 +2,6 @@ version: '3.1'
 services:
   db:
     image: postgres
-    ports:
-        - "5432:5432"
 
   app:
     restart: always
@@ -12,6 +10,7 @@ services:
         - db
     volumes:
         - ./:/code
+    env_file: .env
     ports:
       - "8000:8000"
     command: python manage.py runserver 0.0.0.0:8000

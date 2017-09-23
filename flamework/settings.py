@@ -16,7 +16,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
@@ -25,9 +24,11 @@ SECRET_KEY = 'st9kwt9!h8y*#7qr4!r9*55_-quumghvuo(p8opgpm(jx#rnqc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+DB_conn = ""
 ALLOWED_HOSTS = []
-
+if os.getenv('ENVIRONMENT') == 'production':
+    DB_conn = 'ali'
+    ALLOWED_HOSTS = [os.getenv('DB_HOST')]
 
 # Application definition
 
@@ -72,22 +73,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'flamework.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': '',
-            'HOST': 'db',
-            'PORT': 5432
-        }
-    }
-else:
+if DB_conn == 'ali':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -98,6 +86,18 @@ else:
             'PORT': 5432
         }
     }
+elif DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': '',
+            'HOST': 'db',
+            'PORT': 5432
+        }
+    }
+
 
 
 # Password validation
@@ -118,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -131,7 +130,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
