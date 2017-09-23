@@ -1,21 +1,23 @@
 {% extends 'flamework_app/base.html' %}
 {% block content %}
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>人の頑張りがみてわかって選べるマッチングサイト</h1>
-        <p>Flameworkは、人の頑張りがみてわかって選べるマッチングサイトです。</p>
-      </div>
-    </div>
-
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
     <div class="container">
-      <div class="text-center">
-        <img src="http://via.placeholder.com/80x80">
-        <p class="text-muted">ろご</p>
+      <h1>人の頑張りがみてわかって選べるマッチングサイト</h1>
+      <p>Flameworkは、人の頑張りがみてわかって選べるマッチングサイトです。</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="text-center">
+      <img src="http://via.placeholder.com/80x80">
+      <p class="text-muted">ろご</p>
+      <a href="{% url 'flamework_app:register' %}">
         <img src="http://via.placeholder.com/300x80">
         <p class="text-muted">ログイン・登録</p>
-      </div>
+      </a>
+    </div>
 
-    </div> <!-- /container -->
+  </div> <!-- /container -->
 {% endblock %}

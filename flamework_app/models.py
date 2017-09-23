@@ -23,7 +23,7 @@ class Idea(models.Model):
 
 class IdeaImage(models.Model):
     idea = models.ForeignKey(Idea, on_delete=models.CASCADE)
-    path = models.CharField(max_length=64, null=False)
+    image = models.ImageField()
     created_at = models.DateTimeField(null=False, auto_now=True)
 
 
