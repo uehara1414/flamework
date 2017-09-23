@@ -1,0 +1,17 @@
+version: '3.1'
+services:
+  db:
+    image: postgres
+    ports:
+        - "5432:5432"
+
+  app:
+    restart: always
+    build: .
+    links:
+        - db
+    volumes:
+        - ./:/code
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
