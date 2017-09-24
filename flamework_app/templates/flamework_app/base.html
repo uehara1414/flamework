@@ -14,7 +14,9 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'flamework_app/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'flamework_app/css/main.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.css"/>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -55,13 +57,15 @@
 {#</nav>#}
 <div id="header">
     <div class="left-content">
-        <img src="{% static 'flamework_app/img/header/logo.png' %}" class="logo">
+        <a href="./">
+            <img src="{% static 'flamework_app/img/header/logo.png' %}" class="logo">
+        </a>
     </div>
     <div class="right-content right-margin">
-        <img src="{% static 'flamework_app/img/header/my_page-01.png' %}" class="menu-banner" alt="マイページ">
+        <img src="{% static 'flamework_app/img/header/my_page-01.png' %}" class="menu-banner" alt="My Page">
     </div>
     <div class="right-content left-margin">
-        <img src="{% static 'flamework_app/img/header/flame_list-01.png' %}" class="menu-banner" alt="熱いリスト">
+        <img src="{% static 'flamework_app/img/header/flame_list-01.png' %}" class="menu-banner" alt="Flame List">
     </div>
 
 </div>
@@ -79,7 +83,15 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script>
+    $(document).ready(function () {
+        $('.image-slide').slick({
+            setting-name: setting-value
+    });
+</script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.8.0/slick.min.js"></script>
 <script src="{% static 'flamework_app/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
 </body>
 </html>
