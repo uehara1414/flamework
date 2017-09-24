@@ -73,3 +73,10 @@
   position: absolute;
   width: 100%;
 }
+
+.trim {
+    overflow: hidden;
+    width: 200px;/* トリミングしたい枠の幅 */
+    height: 200px;/* トリミングしたい枠の高さ */
+    position: relative;
+}
