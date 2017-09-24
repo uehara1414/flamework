@@ -1,12 +1,5 @@
 {% extends 'flamework_app/base.html' %}
 
-    weekday_daytime = models.BooleanField(null=False, default=False)
-    weekday_night = models.BooleanField(null=False, default=False)
-    weekends_daytime = models.BooleanField(null=False, default=False)
-    weekends_night = models.BooleanField(null=False, default=False)
-    address = models.CharField(max_length=32, null=False, blank=False)
-    zipcode = models.CharField(max_length=16, null=False, blank=False)
-
 {% block content %}
   <div class="container" style="margin-top: 60px;width: 300px;">
 
