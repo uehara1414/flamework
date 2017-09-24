@@ -43,6 +43,10 @@ class Idea(models.Model):
     class Meta:
         get_latest_by = 'updated_at'
 
+    @property
+    def images(self):
+        return IdeaImage.objects.filter(idea=self)
+
 
 class IdeaImage(models.Model):
     idea = models.ForeignKey(Idea, on_delete=models.CASCADE)
