@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from flamework_app.models import DesignerIdea, EngineerIdea, IdeaImage, UserInfo
+from flamework_app.models import DesignerIdea, EngineerIdea, IdeaImage, UserInfo, User
 from .forms import DesignerIdeaForm, UserInfoForm
+from django.contrib.auth import authenticate, login
+import uuid
 
 
 def index(request):
@@ -9,6 +11,15 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
+        user_name = uuid.uuid4().hex[:10]
+        email = uuid.uuid4().hex[:10]
+        password = uuid.uuid4().hex[:10]
+        user = User.objects.create_user(user_name,
+                                        '{}@thebeatles.com'.format(email),
+                                        password)
+        user = authenticate(request, username=user_name, password=password)
+        login(request, user)
+
         f = DesignerIdeaForm(request.POST)
         design_idea = f.save(commit=False)
         design_idea.user = request.user
