@@ -1,0 +1,37 @@
+#header {
+	background-color: #f87800;     /* 背景色(黒) */
+	padding:10px 0 20px;       /* 上10px、下20pxをあける */
+	height: 70px;              /* 縦の高さ110px */
+	width:100%;                /* 横の幅を100% */
+}
+
+.left-content{
+    float: left;
+}
+
+.right-content{
+    float: right;
+}
+
+.right-margin{
+    margin-right: 10px;
+}
+
+.left-margin{
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+.image{
+    background: url("../img/box/box5-01.png");
+    background-size: cover;
+    height: 320px;
+    width: 320px;
+}
+
+.img-center{
+    margin: auto;
+    padding-top: 55px;
+    height: 200px;
+    width: 200px;
+}
