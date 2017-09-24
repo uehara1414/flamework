@@ -28,7 +28,7 @@ DB_conn = ""
 ALLOWED_HOSTS = []
 if os.getenv('ENVIRONMENT') == 'production':
     DB_conn = 'ali'
-    ALLOWED_HOSTS = [os.getenv('DB_HOST')]
+    ALLOWED_HOSTS = [os.getenv('DB_HOST'), 'localhost']
 
 # Application definition
 
