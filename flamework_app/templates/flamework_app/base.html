@@ -1,7 +1,7 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <html lang="jp">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,57 +13,73 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'flamework_app/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'flamework_app/css/main.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url 'flamework_app:index' %}">Flamework</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-left" action="{% url 'flamework_app:search' %}" method="get">
-            <div class="form-group">
-              <input type="text" placeholder="キーワードから探す" class="form-control">
-            </div>
-            <button type="submit" class="btn">検索</button>
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="{% url 'flamework_app:mypage' %}">mypage</a></li>
-            <li><a href="{% url 'flamework_app:signin' %}">Sign In</a></li>
-            <li><a href="{% url 'flamework_app:signup' %}">Sign Up</a></li>
-          </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
+{#<nav class="navbar navbar-inverse navbar-fixed-top">#}
+{#    <div class="container">#}
+{#        <div class="navbar-header">#}
+{#            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"#}
+{#                    aria-expanded="false" aria-controls="navbar">#}
+{#                <span class="sr-only">Toggle navigation</span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#            </button>#}
+{#            <a class="navbar-brand" href="{% url 'flamework_app:index' %}">Flamework</a>#}
+{#        </div>#}
+{#        <div id="navbar" class="navbar-collapse collapse">#}
+{#            <form class="navbar-form navbar-left" action="{% url 'flamework_app:search' %}" method="get">#}
+{#                <div class="form-group">#}
+{#                    <input type="text" placeholder="キーワードから探す" class="form-control">#}
+{#                </div>#}
+{#                <button type="submit" class="btn">検索</button>#}
+{#            </form>#}
+{#            <ul class="nav navbar-nav navbar-right">#}
+{#                <li><a href="{% url 'flamework_app:mypage' %}">mypage</a></li>#}
+{#                <li><a href="{% url 'flamework_app:signin' %}">Sign In</a></li>#}
+{#                <li><a href="{% url 'flamework_app:signup' %}">Sign Up</a></li>#}
+{#            </ul>#}
+{#        </div><!--/.navbar-collapse -->#}
+{#    </div>#}
+{#</nav>#}
+<div id="header">
+    <div class="left-content">
+        <img src="{% static 'flamework_app/img/header/logo.png' %}" class="logo">
+    </div>
+    <div class="right-content right-margin">
+        <img src="{% static 'flamework_app/img/header/my_page-01.png' %}" class="menu-banner" alt="マイページ">
+    </div>
+    <div class="right-content left-margin">
+        <img src="{% static 'flamework_app/img/header/flame_list-01.png' %}" class="menu-banner" alt="熱いリスト">
+    </div>
 
-    {% block content %}
-    {% endblock %}
+</div>
 
-    <hr>
+{% block content %}
+{% endblock %}
 
-    <footer>
-      <p align="center">&copy; 2017 uehara1414</p>
-    </footer>
+<hr>
+
+<footer>
+    <p align="center">&copy; 2017 uehara1414</p>
+</footer>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="{% static 'flamework_app/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
-  </body>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="{% static 'flamework_app/bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+</body>
 </html>
