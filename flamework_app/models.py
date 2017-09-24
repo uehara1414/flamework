@@ -9,7 +9,14 @@ class User(AbstractUser):
 
 
 class UserInfo(models.Model):
+    ENGINEER = 'engineer'
+    DESIGNER = 'designer'
+    USER_TYPE = (
+        (ENGINEER, 'エンジニア'),
+        (DESIGNER, 'デザイナー'),
+    )
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    user_type = models.CharField(max_length=16, null=False, choices=USER_TYPE, default=ENGINEER)
     weekday_daytime = models.BooleanField(null=False, default=False)
     weekday_night = models.BooleanField(null=False, default=False)
     weekends_daytime = models.BooleanField(null=False, default=False)
@@ -46,6 +53,10 @@ class Idea(models.Model):
     @property
     def images(self):
         return IdeaImage.objects.filter(idea=self)
+
+    @property
+    def image_num(self):
+        return IdeaImage.objects.filter(idea=self).count()
 
 
 class IdeaImage(models.Model):

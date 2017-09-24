@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from flamework_app.models import DesignerIdea, EngineerIdea, IdeaImage
+from flamework_app.models import DesignerIdea, EngineerIdea, IdeaImage, UserInfo
 from .forms import DesignerIdeaForm, UserInfoForm
 
 
@@ -50,10 +50,14 @@ def mypage(request):
 
 def search(request):
 
+    def distance(idea: DesignerIdea):
+        return idea.user.userinfo.get_zip_distance(request.user.userinfo.zipcode)
+
     target = request.GET.get('target', 'designer')
 
     if target == 'designer':
-        ideas = DesignerIdea.objects.all()
+        ideas = list(sorted(DesignerIdea.objects.all(), key=lambda x: x.image_num, reverse=True))
+        ideas = list(sorted(ideas, key=lambda i: distance(i)))
         context = {
             'ideas': ideas
         }

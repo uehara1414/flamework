@@ -11,4 +11,4 @@ class DesignerIdeaForm(forms.ModelForm):
 class UserInfoForm(forms.ModelForm):
     class Meta:
         model = UserInfo
-        fields = ['weekday_daytime', 'weekday_night', 'weekends_daytime', 'weekends_night']
+        fields = ['weekday_daytime', 'weekday_night', 'weekends_daytime', 'weekends_night', 'user_type']
