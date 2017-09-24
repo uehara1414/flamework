@@ -64,3 +64,43 @@
     height: 45px;
     margin-left: 10px;
 }
+
+.carousel .item {
+  height: 100%;
+}
+
+.carousel img {
+  position: absolute;
+  width: 100%;
+}
+
+.trim {
+    overflow: hidden;
+    width: 200px;/* トリミングしたい枠の幅 */
+    height: 200px;/* トリミングしたい枠の高さ */
+    position: relative;
+}
+
+.carousel{
+  height: 200px;
+  margin:auto;
+}
+
+
+@media (min-width: 320px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel,
+  .carousel .item,
+  .carousel .item-mask,
+  .carousel-inner .item .item-mask img {
+    height:400px;
+  }
+}
