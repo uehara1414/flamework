@@ -28,6 +28,22 @@ def register(request):
         return render(request, 'flamework_app/register.html', {'form': form})
 
 
+def register_idea(request):
+    if request.method == 'POST':
+        f = DesignerIdeaForm(request.POST)
+        design_idea = f.save(commit=False)
+        design_idea.user = request.user
+        design_idea.save()
+
+        for img in request.FILES.getlist('image', []):
+            IdeaImage.objects.create(idea=design_idea, image=img)
+        return redirect('/mypage/')
+
+    elif request.method == 'GET':
+        form = UserInfoForm()
+        return render(request, 'flamework_app/register.html', {'form': form})
+
+
 def mypage(request):
     return render(request, 'flamework_app/mypage.html')
 

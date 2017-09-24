@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^mypage/$', views.mypage, name='mypage'),
     url(r'^register/$', views.register, name='register'),
+    url(r'^register_idea/$', views.register_idea, name='register_idea'),
     url(r'^search/$', views.search, name='search'),
     url(r'^engineer_idea_detail/(?P<pk>\d+)/$', views.engineer_idea_detail, name='engineer_idea_detail'),
     url(r'^designer_idea_detail/(?P<pk>\d+)/$', views.designer_idea_detail, name='designer_idea_detail'),
