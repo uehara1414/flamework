@@ -8,6 +8,7 @@
     zipcode = models.CharField(max_length=16, null=False, blank=False)
 
 {% block content %}
+  {% load staticfiles %}
   <div class="container" style="margin-top: 60px;width: 300px;">
 
     <form class="form" action="{% url 'flamework_app:register' %}" method="post" enctype="multipart/form-data">

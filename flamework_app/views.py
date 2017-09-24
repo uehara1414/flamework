@@ -71,9 +71,9 @@ def search(request):
 
 
 def engineer_idea_detail(request, pk):
-    idea = EngineerIdea.objects.get(id=pk)
-    context = {'idea': idea}
-    return render(request, 'flamework_app/engineer_idea_detail.html', context)
+    # idea = EngineerIdea.objects.get(id=pk)
+    # context = {'idea': idea}
+    return render(request, 'flamework_app/engineer_idea_detail.html')
 
 
 def designer_idea_detail(request, pk):

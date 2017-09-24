@@ -1,15 +1,8 @@
-{% extends 'flamework_app/mypage_base.html' %}
-{% block main %}
-  <div class="container" style="margin-top: 60px">
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#">お知らせ</a></li>
-    <li role="presentation"><a href="#">やることリスト</a></li>
-  </ul>
-  <h2>お知らせ</h2>
-  <ul>
-    <li><a href="#">2017/07/12「認知心理学の教科書」に対して購入申請がきました</a></li>
-    <li><a href="#">2017/07/12「認知心理学の教科書」に対して購入申請がきました</a></li>
-  </ul>
-
-  </div>
-{% endblock %}
+{% load staticfiles %}
+<html>
+<body>
+<a href="{% url 'flamework_app:mypage' %}">
+<img src="{% static 'flamework_app/img/pera/マイページ-01.png' %}" style="max-height: 100%;max-width: 100%;">
+</a>
+</body>
+</html>

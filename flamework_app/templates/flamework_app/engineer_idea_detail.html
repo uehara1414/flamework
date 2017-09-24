@@ -1,18 +1,8 @@
-{% extends 'flamework_app/base.html' %}
-{% block content %}
-  <div class="container jumbotron" style="margin-top: 60px;width: 600px;">
-
-  <div>
-    <h2>商品情報</h2>
-    <label for="inputEmail">商品名</label>
-    <p id="inputEmail">アルゴの教科書</p>
-    <label for="price">値段</label>
-    <p id="price">1000</p>
-    <label for="comment">コメント</label>
-    <p id="comment">やすいよー</p>
-    <a href="{% url 'flamework_app:sell_completed' %}"><button class="btn btn-lg btn-primary btn-block">出品する</button></a>
-    <a href="{% url 'flamework_app:sell' %}"><button class="btn btn-lg btn-default btn-block">修正する</button></a>
-  </div>
-
-  </div>
-{% endblock %}
+{% load staticfiles %}
+<html>
+<body>
+<a href="{% url 'flamework_app:mypage' %}">
+<img src="{% static 'flamework_app/img/pera/エンジニア詳細-01.png' %}" style="max-height: 100%;max-width: 100%;">
+</a>
+</body>
+</html>
