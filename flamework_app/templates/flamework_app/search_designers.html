@@ -12,8 +12,7 @@
       <div class="col-sm-4">
         <a href="{% url 'flamework_app:designer_idea_detail' idea.id %}">
           <h3>{{ idea.title }}</h3>
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200"
-               height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+          <img src="{{ idea.images.0.image.url }}">
           {{ idea.description }}
         </a>
       </div>
