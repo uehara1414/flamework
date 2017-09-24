@@ -64,3 +64,12 @@
     height: 45px;
     margin-left: 10px;
 }
+
+.carousel .item {
+  height: 100%;
+}
+
+.carousel img {
+  position: absolute;
+  width: 100%;
+}
