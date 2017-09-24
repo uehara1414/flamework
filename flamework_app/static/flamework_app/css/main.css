@@ -1,49 +1,61 @@
 #header {
-	background-color: #f87800;     /* 背景色(黒) */
-	padding:10px 0 20px;       /* 上10px、下20pxをあける */
-	height: 70px;              /* 縦の高さ110px */
-	width:100%;                /* 横の幅を100% */
+    background-color: #f87800; /* 背景色(黒) */
+    padding: 10px 0 20px; /* 上10px、下20pxをあける */
+    height: 70px; /* 縦の高さ110px */
+    width: 100%; /* 横の幅を100% */
 }
 
-.left-content{
+.left-content {
     float: left;
 }
 
-.right-content{
+.right-content {
     float: right;
 }
 
-.right-margin{
+.right-margin {
     margin-right: 10px;
 }
 
-.left-margin{
+.left-margin {
     margin-left: 10px;
     padding-right: 10px;
 }
 
-.image{
+.image {
     background: url("../img/box/box5-01.png");
     background-size: cover;
     height: 320px;
     width: 320px;
 }
 
-.img-center{
+.img-center {
     margin: auto;
     padding-top: 45px;
     height: 200px;
     width: 200px;
 }
 
-.menu-banner{
+.menu-banner {
     width: 150px;
     margin-top: 10px;
 }
 
-.image-footer{
-	background-color: #f87800;     /* 背景色(黒) */
-	padding:10px 0 20px;       /* 上10px、下20pxをあける */
-	height: 10px;              /* 縦の高さ110px */
-	width:100%;                /* 横の幅を100% */
+.image-footer {
+    background-color: #f87800; /* 背景色(黒) */
+    padding: 10px 0 20px; /* 上10px、下20pxをあける */
+    height: 10px; /* 縦の高さ110px */
+    width: 100%; /* 横の幅を100% */
+}
+
+.renew-date {
+    float: left;
+    padding-left: 3px;
+    color: white;
+}
+
+.flame-btn {
+    float: right;
+    margin-right: 10px;
+    margin-top: 0px;
 }
