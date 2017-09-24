@@ -1,59 +1,31 @@
 {% extends 'flamework_app/base.html' %}
+{% load static %}
 {% block content %}
-    <div class="container jumbotron" style="margin-top: 60px;width: 600px;">
+    <div class="container" style="margin-top: 60px; width: 700px;">
 
-
-        {#                <div>#}
-        {#                    <h2>{{ idea.title }}</h2>#}
-        {#                    <div id="carousel-mainContents" class="carousel slide" data-ride="carousel">#}
-        {#                        <!-- Indicators -->#}
-        {#                        <ol class="carousel-indicators">#}
-        {#                            {% for image in images %}#}
-        {#                                {% if forloop.counter0 == '0' %}#}
-        {#                                    <li data-target="#carousel-mainContents" data-slide-to="{{ forloop.counter0 }}"#}
-        {#                                        class="active"></li>#}
-        {#                                {% else %}#}
-        {#                                    <li data-target="#carousel-mainContents" data-slide-to="{{ forloop.counter0 }}"></li>#}
-        {#                                {% endif %}#}
-        {#                            {% endfor %}#}
-        {#                        </ol>#}
-        {##}
-        {#                        <!-- Wrapper for slides -->#}
-        {#                        <div class="carousel-inner" role="listbox">#}
-        {#                            {% for image in idea.images %}#}
-        {#                                <div class="item">#}
-        {#                                    <img src="{{ image.image.url }}" alt="hogehoge">#}
-        {#                                    <div class="carousel-caption">#}
-        {#                                        <h3>hogehoge</h3>#}
-        {#                                        <p>hogehoge</p>#}
-        {#                                    </div>#}
-        {#                                </div>#}
-        {#                            {% endfor %}#}
-        {#                        </div>#}
-        {##}
-        {#                        <!-- Controls -->#}
-        {#                        <a class="left carousel-control" href="#carousel-mainContents" role="button" data-slide="prev">#}
-        {#                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>#}
-        {#                            <span class="sr-only">Previous</span>#}
-        {#                        </a>#}
-        {#                        <a class="right carousel-control" href="#carousel-mainContents" role="button" data-slide="next">#}
-        {#                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>#}
-        {#                            <span class="sr-only">Next</span>#}
-        {#                        </a>#}
-        {#                    </div>#}
         <div class="image-slide">
             {% for image in images %}
                 <img src="{{ image.image.url }}" alt="">
             {% endfor %}
         </div>
 
-        <label for="description">説明</label>
-        <p id="description">{{ idea.description }}</p>
-        <a href="{% url 'flamework_app:sell_completed' %}">
-            <button class="btn btn-lg btn-primary btn-block">コンタクト申請する</button>
-        </a>
+
+        <div id="description">
+            <h3 id="idea-title">{{ idea.title }}</h3>
+
+            <p id="idea-description">{{ idea.description }}</p>
+
+            <p><img src="{% static 'flamework_app/img/user_icon.png' %}" height="80px" alt=""></p>
+
+            <p>
+                <small>デザイナー</small>
+                <br>小野寺ゆうたろう
+            </p>
+            <p>年齢：20歳　デザイナー歴：２ヶ月　活動時間：17:00~　住まい：渋谷区</p>
+            <a href="{% url 'flamework_app:sell_completed' %}">
+                <button class="btn btn-sm btn-warning">コンタクト申請する</button>
+            </a>
+
+        </div>
     </div>
-    <script>
-        $('.image-slide').slick();
-    </script>
 {% endblock %}
