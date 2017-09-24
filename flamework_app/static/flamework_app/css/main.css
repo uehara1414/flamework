@@ -25,8 +25,8 @@
 .image {
     background: url("../img/box/box5-01.png");
     background-size: cover;
-    height: 320px;
-    width: 320px;
+    height: 330px;
+    width: 330px;
 }
 
 .img-center {
@@ -44,7 +44,7 @@
 .image-footer {
     background-color: #f87800; /* 背景色(黒) */
     padding: 10px 0 20px; /* 上10px、下20pxをあける */
-    height: 10px; /* 縦の高さ110px */
+    height: 35px; /* 縦の高さ110px */
     width: 100%; /* 横の幅を100% */
 }
 
@@ -58,4 +58,9 @@
     float: right;
     margin-right: 10px;
     margin-top: 0px;
+}
+
+.logo{
+    height: 45px;
+    margin-left: 10px;
 }
