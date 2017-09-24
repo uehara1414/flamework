@@ -31,7 +31,7 @@
 
 .img-center{
     margin: auto;
-    padding-top: 55px;
+    padding-top: 45px;
     height: 200px;
     width: 200px;
 }
@@ -39,4 +39,11 @@
 .menu-banner{
     width: 150px;
     margin-top: 10px;
+}
+
+.image-footer{
+	background-color: #f87800;     /* 背景色(黒) */
+	padding:10px 0 20px;       /* 上10px、下20pxをあける */
+	height: 10px;              /* 縦の高さ110px */
+	width:100%;                /* 横の幅を100% */
 }
