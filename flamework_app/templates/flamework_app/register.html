@@ -1,16 +1,45 @@
 {% extends 'flamework_app/base.html' %}
+
+    weekday_daytime = models.BooleanField(null=False, default=False)
+    weekday_night = models.BooleanField(null=False, default=False)
+    weekends_daytime = models.BooleanField(null=False, default=False)
+    weekends_night = models.BooleanField(null=False, default=False)
+    address = models.CharField(max_length=32, null=False, blank=False)
+    zipcode = models.CharField(max_length=16, null=False, blank=False)
+
 {% block content %}
   <div class="container" style="margin-top: 60px;width: 300px;">
 
     <form class="form" action="{% url 'flamework_app:register' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
 
+      <h2>プロフィール入力</h2>
+
+      <label for="id_weekday_daytime">平日の昼</label>
+      <input type="checkbox" name="weekday_daytime" id="id_weekday_daytime"><br>
+
+      <label for="id_weekday_night">平日の夜</label>
+      <input type="checkbox" name="weekday_night" id="id_weekday_night"><br>
+
+      <label for="id_weekend_daytime">休日の昼</label>
+      <input type="checkbox" name="weekend_daytime" id="id_weekend_daytime"><br>
+
+      <label for="id_weekend_night">休日の夜</label>
+      <input type="checkbox" name="weekend_night" id="id_weekend_night"><br>
+
+      <label for="address">住所</label>
+      <input type="text" name="address">
+
       <h2 class="form-signin-heading">アイデア入力</h2>
       <label for="title" class="sr-only">タイトル</label>
       <input id="title" name="title" class="form-control" required autofocus>
       <label for="description" class="sr-only">説明</label>
       <textarea id="description" name="description" class="form-control" required></textarea>
-      <input name="image" type="file">
+      <input name="image" type="file" value="画像1">
+      <input name="image" type="file" value="画像2">
+      <input name="image" type="file" value="画像3">
+      <input name="image" type="file" value="画像4">
+      <input name="image" type="file" value="画像5">
       <button class="btn btn-lg btn-primary btn-block" type="submit">登録</button>
     </form>
 

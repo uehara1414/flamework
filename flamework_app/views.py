@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from flamework_app.models import DesignerIdea, EngineerIdea, IdeaImage
-from .forms import DesignerIdeaForm
+from .forms import DesignerIdeaForm, UserInfoForm
 
 
 def index(request):
@@ -13,9 +13,19 @@ def register(request):
         design_idea = f.save(commit=False)
         design_idea.user = request.user
         design_idea.save()
+
+        f = UserInfoForm(request.POST)
+        user_info = f.save(commit=False)
+        user_info.user = request.user
+        user_info.digest_address(request.POST['address'])
+
         for img in request.FILES.getlist('image', []):
             IdeaImage.objects.create(idea=design_idea, image=img)
-    return render(request, 'flamework_app/register.html')
+        return redirect('/mypage/')
+
+    elif request.method == 'GET':
+        form = UserInfoForm()
+        return render(request, 'flamework_app/register.html', {'form': form})
 
 
 def mypage(request):
