@@ -1,9 +1,31 @@
-from django.shortcuts import render
-from flamework_app.models import DesignerIdea, EngineerIdea
+from django.shortcuts import render, redirect
+from flamework_app.models import DesignerIdea, EngineerIdea, IdeaImage
+from .forms import DesignerIdeaForm, UserInfoForm
 
 
 def index(request):
     return render(request, 'flamework_app/index.html')
+
+
+def register(request):
+    if request.method == 'POST':
+        f = DesignerIdeaForm(request.POST)
+        design_idea = f.save(commit=False)
+        design_idea.user = request.user
+        design_idea.save()
+
+        f = UserInfoForm(request.POST)
+        user_info = f.save(commit=False)
+        user_info.user = request.user
+        user_info.digest_address(request.POST['address'])
+
+        for img in request.FILES.getlist('image', []):
+            IdeaImage.objects.create(idea=design_idea, image=img)
+        return redirect('/mypage/')
+
+    elif request.method == 'GET':
+        form = UserInfoForm()
+        return render(request, 'flamework_app/register.html', {'form': form})
 
 
 def mypage(request):
@@ -36,7 +58,8 @@ def engineer_idea_detail(request, pk):
 
 def designer_idea_detail(request, pk):
     idea = DesignerIdea.objects.get(id=pk)
-    context = {'idea': idea}
+    images = IdeaImage.objects.filter(idea=idea)
+    context = {'idea': idea, 'images': images}
     return render(request, 'flamework_app/designer_idea_detail.html', context)
 
 

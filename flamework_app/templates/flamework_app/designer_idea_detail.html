@@ -4,6 +4,9 @@
 
   <div>
     <h2>{{ idea.title }}</h2>
+    {% for image in images %}
+      <img src="{{ image.image.url }}">
+    {% endfor %}
     <label for="description">説明</label>
     <p id="description">{{ idea.description }}</p>
     <a href="{% url 'flamework_app:sell_completed' %}"><button class="btn btn-lg btn-primary btn-block">コンタクト申請する</button></a>

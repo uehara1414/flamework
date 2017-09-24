@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import requests
 import uuid
 
 
@@ -9,6 +10,28 @@ class User(AbstractUser):
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    weekday_daytime = models.BooleanField(null=False, default=False)
+    weekday_night = models.BooleanField(null=False, default=False)
+    weekends_daytime = models.BooleanField(null=False, default=False)
+    weekends_night = models.BooleanField(null=False, default=False)
+    address = models.CharField(max_length=32, null=False, blank=False)
+    zipcode = models.CharField(max_length=16, null=False, blank=False)
+
+    def digest_address(self, address):
+        url = 'http://zipcoda.net/api'
+        r = requests.get(url, params={'address': address})
+        self.zipcode = r.json()['items'][0]['zipcode']
+        r = requests.get(url, params={'zipcode': self.zipcode})
+        self.address = r.json()['items'][0]['address']
+        self.save()
+
+    def get_zip_distance(self, other):
+        if self.zipcode == other:
+            return 0
+        for distance in range(1, len(self.zipcode)):
+            if self.zipcode[:-distance] == other[:-distance]:
+                return distance
+        return len(self.zipcode)
 
 
 class Idea(models.Model):
@@ -23,7 +46,7 @@ class Idea(models.Model):
 
 class IdeaImage(models.Model):
     idea = models.ForeignKey(Idea, on_delete=models.CASCADE)
-    path = models.CharField(max_length=64, null=False)
+    image = models.ImageField()
     created_at = models.DateTimeField(null=False, auto_now=True)
 
 
